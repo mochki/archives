@@ -1,0 +1,17 @@
+@import url(https://fonts.googleapis.com/css?family=Merriweather+Sans:400,800,300);
+
+body {
+  font-family: 'Merriweather Sans', sans-serif;
+  color: rgba(255, 255, 255, .67);
+  margin: 0;
+  background-color: #80DEEA;
+  text-align: center;
+}
+
+h1 {
+  font-size: 72px;
+}
+
+p {
+  color: rgba(255, 255, 255, .87);
+}

@@ -1,0 +1,112 @@
+<style>
+  div.calendar-container {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  h3 {
+    font-weight: 300;
+  }
+
+  table.calendar {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+  }
+
+  table.calendar tbody {
+    border: 1px solid #e6e6e6;
+  }
+
+  table.calendar th {
+    text-align: center;
+    height: 25px;
+    font-weight: 300;
+  }
+
+  table.calendar td {
+    width:14.285%;
+    position:relative;
+  }
+
+  .btn1.selected {
+    background-color: #FF4081;
+    color: rgba(255, 255, 255, .87);
+  }
+
+  .btn1.selected:hover {
+    background-color: #FF80AB;
+    color: rgba(255, 255, 255, .87);
+  }
+
+  .btn1.today {
+    border: 1px solid #FF4081;
+  }
+
+  .btn1.today.selected {
+    /*border: 1px solid #FF4081;*/
+    background-color: #F8BBD0;
+    color: rgba(255, 255, 255, .87);
+  }
+
+  table.calendar td:after{
+    content:'';
+    display:block;
+    margin-top:100%;
+  }
+
+  td .content {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+  }
+
+  .btn1 {
+    min-width: 100%;
+    width: 100%;
+    min-height: 100%;
+    height: 100%;
+    position: relative;
+    border-radius: 0%;
+    margin: 0;
+  }
+</style>
+
+<div layout="column" class="md-block calendar-container">
+  <div layout="row" layout-align="start center">
+    <md-button class="md-icon-button" ng-click="datePicker.decMonth()">
+      <md-icon class="material-icons">keyboard_arrow_left</md-icon>
+    </md-button>
+    <span flex></span>
+    <h3>{{datePicker.months[datePicker.currMonth] + " " + datePicker.currYear}}</h3>
+    <span flex></span>
+    <md-button class="md-icon-button" ng-click="datePicker.incMonth()">
+      <md-icon class="material-icons">keyboard_arrow_right</md-icon>
+    </md-button>
+  </div>
+
+  <table class="calendar">
+    <thead>
+      <tr>
+        <th ng-repeat="day in datePicker.days track by $index">{{day}}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="row in datePicker.daySlots">
+        <td ng-repeat="col in row track by $index" ng-model="datePicker.daySlots[row][col]">
+          <div class="content" layout="column" layout-align="center center">
+            <md-button class="btn1" ng-if="col != 0"
+                       ng-class="{today: datePicker.isToday(col), selected: datePicker.selectedDays[datePicker.currYear][datePicker.currMonth][col]}"
+                       ng-click="datePicker.selectDay(col)">
+              {{ col }}
+            </md-button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

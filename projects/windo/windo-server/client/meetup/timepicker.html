@@ -1,0 +1,142 @@
+<style>
+.center {
+  text-align: center;
+}
+
+.container {
+  /*-webkit-overflow-scrolling: auto;*/
+  /*overflow: scroll;*/
+  /*width: auto;*/
+  /*min-width: 100%;*/
+  /*overflow-y: visible;*/
+  /*min-width: 500px;*/
+  /*min-height: 500px;*/
+}
+
+.parent{
+  width: 300px;
+  display: inline-block;
+  background-color: red;
+
+}
+
+.day-number {
+  font-size: 12px;
+  margin-bottom: 10px;
+  /* em */
+}
+
+.day-text {
+  font-size: 16px;
+  margin-bottom: 15px;
+  /* em */
+}
+
+
+
+.day-column {
+  /*width: 140px;*/
+  /*min-width: 140px;*/
+  text-align: center;
+  /*margin: auto;*/
+  /*margin-left: 50px;
+  margin-right: 50px;*/
+  /* em*/
+  margin-bottom: 50px;
+}
+
+.hour-button {
+  width: 50px;
+  max-width: 50px;
+  min-width: 50px;
+  height: 50px;
+  /*position: relative;*/
+  border-radius: 0%;
+  margin: 0;
+  padding: 0;
+  text-transform: none;
+}
+
+.hour-button.selected {
+  color: rgba(0, 0, 0, .67);
+}
+
+.hour-button.selected.am {
+  background-color: rgb(255, 224, 130);
+}
+
+.hour-button.selected.am:hover {
+  background-color: rgba(255, 224, 130, .6);
+}
+
+.hour-button.selected.pm {
+  background-color: rgb(179, 229, 252);
+}
+
+.hour-button.selected.pm:hover {
+  background-color: rgba(179, 229, 252, .6);
+}
+
+.hour-button.selected.night {
+  background-color: rgb(159, 168, 218);
+}
+
+.hour-button.selected.night:hover {
+  background-color: rgba(159, 168, 218, .6);
+}
+
+.am {
+  background-color: rgba(255, 243, 224, .3);
+
+}
+
+.pm {
+  background-color: rgba(225, 245, 254, .3);
+}
+
+.night {
+  background-color: rgba(232, 234, 246, .7);
+}
+
+/*.day-headers {
+  position: relative;
+  max-width: 100%;
+}*/
+
+</style>
+
+<!-- <md-content layout="column" flex layout-align="start center" style="overflow: scroll;"> -->
+  <!-- <div class="day-headers" layout="row">
+    <div layout="column" class="day-column center" ng-repeat="day in timePicker.days" layout-align="start center">
+      <span class="day-number">{{day | date: "d"}}</span>
+      <span class="day-text">{{day | date: "EEE" | uppercase}}</span>
+    </div>
+  </div> -->
+  <div class="container" layout="column" layout-align="center center">
+    <!--flex-sm="50" flex-xs="100" flex-gt-sm="100"-->
+      <div layout="column" class="day-column center" ng-repeat="day in timePicker.days" layout-align="start start">
+        <div layout="column" layout-align="center center">
+          <!--<span class="day-number">{{day.date | date: "d"}}</span>-->
+          <!--<span class="day-text">{{day.date | date: "EEE" | uppercase}}</span>-->
+          <span><b>{{ day.date | date : "EEEE"}}</b> {{ day.date | date}}</span>
+        </div>
+        <!--<table class="table">-->
+          <!--<tbody>-->
+            <!--<tr ng-repeat="(hour, selected) in day.hours track by $index">-->
+              <!--<td class="center">-->
+                <div class="content" layout="row"  layout-wrap>
+                  <md-button ng-repeat="(hour, selected) in day.hours track by $index"
+                             class="hour-button"
+                             ng-class="{selected:(selected > 0), am:(hour < 12), pm:(hour >= 12 && hour < 19), night:(hour >= 19)}"
+                             ng-click="timePicker.selectHour(day, hour)">
+                    {{ day.date.setHours(hour) | date: "h"}}{{ (hour < 12) ? "a" : "p" }}
+                  </md-button>
+                </div>
+              <!--</td>-->
+            <!--</tr>-->
+          <!--</tbody>-->
+        <!--</table>-->
+      </div>
+    <!-- </div> -->
+  </div>
+<!-- </md-content> -->

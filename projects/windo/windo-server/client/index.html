@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+  <title>Windo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <base href="/">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="/bower_components/angular-material/angular-material.css">
+
+  <!-- JS Source -->
+  <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="/bower_components/angular/angular.min.js"></script>
+  <script src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+  <script src="/bower_components/angular-aria/angular-aria.js"></script>
+  <script src="/bower_components/angular-animate/angular-animate.js"></script>
+  <script src="/bower_components/angular-material/angular-material.js"></script>
+  <script src="/bower_components/angular-messages/angular-messages.js"></script>
+
+  <!-- Angular Scripts -->
+  <script src="/main.js"></script>
+  <script src="/dashboard/dashboard.component.js"></script>
+  <script src="/create/datepicker.component.js"></script>
+  <script src="/create/create.component.js"></script>
+  <script src="/login/login.component.js"></script>
+  <script src="/meetup/timepicker.component.js"></script>
+  <script src="/meetup/submit.component.js"></script>
+  <script src="/meetup/event.component.js"></script>
+  <!-- <script src="/register/register.component.js"></script> -->
+  <script src="/login/confirmation.component.js"></script>
+  <script src="/auth.js"></script>
+  <script src="/routes.js"></script>
+
+  <!-- Styles -->
+  <link rel="stylesheet" type="text/css" href="/style/main.css">
+</head>
+
+<body ng-app="windoApp">
+  <div layout="column" layout-fill>
+    <div layout="column" layout-fill ui-view=""></div>
+  </div>
+</body>
+</html>

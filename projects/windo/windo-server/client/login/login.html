@@ -1,0 +1,125 @@
+<!-- TODO: Registration form validation (proper emails, passwords, etc). -->
+
+<style>
+  .container {
+    background-image: url("/img/iphone_large.jpg");
+    background-size: cover;
+  }
+
+  md-content {
+    background: none;
+  }
+
+  md-card {
+    background-color: rgba(255, 255, 255, .93);
+  }
+
+  md-toolbar.login-toolbar {
+    background: none;
+  }
+
+  md-toolbar.login-toolbar h1 {
+    color: rgba(252, 68, 130, .87);
+    font-weight: 800;
+    font-size: 32px;
+  }
+
+  .spacer {
+    height: 100px;
+  }
+
+  span.md-headline {
+    color: rgba(0, 0, 0, .87);
+  }
+
+  form md-input-container {
+    margin-top: 3px;
+    margin-bottom: 3px;
+  }
+</style>
+
+<div class="container" layout="column" flex>
+  <md-toolbar class="login-toolbar">
+    <div class="md-toolbar-tools" layout-align="end center" layout="column">
+      <span flex="5" hide-xs></span>
+      <h1>Windo</h1>
+      <span flex></span>
+      <div layout-align="end center" hide-xs>
+        <md-button class="">Tutorial</md-button>
+        <md-button class="">About Us</md-button>
+        <md-button class="">Sign in</md-button>
+      </div>
+      <md-button class="md-icon-button" hide-gt-xs>
+        <md-icon class="material-icons">menu</md-icon>
+        <!-- TODO: Menu stuff -->
+      </md-button>
+      <span flex="5" hide-xs></span>
+    </div>
+  </md-toolbar>
+
+  <div class="spacer" hide-sm hide-xs></div>
+
+  <md-content class="md-padding" layout="row" layout-align="center start">
+    <md-card class="login-card" flex-gt-sm="40" flex-sm="90" flex="100">
+       <md-card-title>
+          <md-card-title-text layout="column" layout-align="start center">
+             <span class="md-headline">Sign up</span>
+         </md-card-title-text>
+       </md-card-title>
+       <md-card-content>
+          <form name="login.registerForm" class="full-width-form" layout="column" layout-align="start center">
+            <div layout-gt-xs="row" style="width:100%;">
+              <md-input-container class="md-block" flex-gt-xs>
+                <label>first name</label>
+                <input ng-model="login.firstname" required>
+              </md-input-container>
+              <md-input-container class="md-block" flex-gt-xs>
+                <label>last name</label>
+                <input ng-model="login.lastname" required>
+              </md-input-container>
+            </div>
+            <md-input-container class="md-block">
+              <label>email</label>
+              <input ng-model="login.email" required>
+            </md-input-container>
+            <md-input-container class="md-block">
+              <label>password</label>
+              <input type="password" ng-model="login.password" required>
+            </md-input-container class="md-block">
+            <md-input-container>
+              <label>confirm password</label>
+              <input type="password" ng-model="login.confirmPassword" required>
+            </md-input-container>
+            <md-button ng-disabled="login.registerForm.$invalid" class="md-raised md-primary register" ng-click="login.register()" flex>Register</md-button>
+          </form>
+       </md-card-content>
+       <!-- <md-card-actions layout="row" layout-align="end center">
+          <md-button ui-sref="register">Register with Facebook</md-button>
+       </md-card-actions> -->
+    </md-card>
+
+    <md-card class="login-card" flex-gt-sm="40" flex-sm="90" flex="100">
+       <md-card-title>
+          <md-card-title-text layout="column" layout-align="start center">
+             <span class="md-headline">Sign in</span>
+         </md-card-title-text>
+       </md-card-title>
+       <md-card-content>
+          <form name="login.loginForm" class="full-width-form" layout="column" layout-align="start center">
+            <md-input-container class="md-block">
+              <label>username/email</label>
+              <input ng-model="login.username" required>
+            </md-input-container>
+            <md-input-container class="md-block">
+              <label>password</label>
+              <input type="password" ng-model="login.loginPassword" required>
+            </md-input-container class="md-block">
+            <md-button ng-disabled="login.loginForm.$invalid" class="md-raised md-accent register" ng-click="login.login()">Login</md-button>
+          </form>
+       </md-card-content>
+       <!-- <md-card-actions layout="row" layout-align="end center">
+          <md-button ui-sref="register">Register with Facebook</md-button>
+       </md-card-actions> -->
+    </md-card>
+  </md-content>
+</div>

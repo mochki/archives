@@ -1,0 +1,159 @@
+<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+
+<style>
+  md-content {
+    background-color: rgba(246, 246, 246, 1);
+  }
+
+  .main-toolbar {
+    height: 206px;
+  }
+
+  #event-header {
+    padding-top: 20px;
+    height: 150px;
+    background-color: #E91E63;
+    color: white;
+  }
+
+  .button-container {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  md-card-content h3 {
+    margin-top: 20px;
+    margin-bottom: 0px;
+    font-weight: 300;
+  }
+
+  .max-width {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  img.avatar {
+    width: 60px;
+    height: auto;
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+
+  img.avatar.disabled {
+    opacity: 0.4;
+  }
+
+  /*.center {
+    text-align: center;
+  }*/
+
+  .container {
+    background-color: #FFF;
+    margin-top: 10px;
+    margin-bottom: 15px;
+  }
+
+  /*.white {*/
+    /*background-color: #FFFFFF;*/
+  /*}*/
+
+  .map {
+    height: 100%;
+  }
+</style>
+
+<md-toolbar md-theme="pink" class="main-toolbar md-hue-2 md-whiteframe-4dp">
+  <div class="md-toolbar-tools" layout-align="start center">
+    <md-button ui-sref="dashboard" class="md-icon-button" aria-label="Menu">
+      <md-icon class="material-icons" style="color: white;">close</md-icon>
+    </md-button>
+    <span flex></span>
+    <h2>{{ eventLanding.meetup.name }}</h2>
+    <span flex></span>
+    <md-button class="md-icon-button" aria-label="Account">
+      <md-icon class="material-icons" style="color: white;">info_outline</md-icon>
+    </md-button>
+  </div>
+
+  <div id="event-header" flex layout="column" layout-align="start center">
+    <!--<md-card-content layout="column" flex layout-align="start center">-->
+      <!--<div class="max-width center" layout="column" layout-align="end center" flex>-->
+        <div class="avatars" layout="row" layout-align="center start">
+          <img class="avatar disabled" src="/img/avatar.png">
+          <img class="avatar" src="/img/avatar.png">
+          <img class="avatar disabled" src="/img/avatar.png">
+          <img class="avatar disabled" src="/img/avatar.png">
+          <img class="avatar" src="/img/avatar.png">
+          <img class="avatar" src="/img/avatar.png">
+          <img class="avatar disabled" src="/img/avatar.png">
+        </div>
+        <span flex></span>
+
+        <div class="button-container" ng-show="eventLanding.hasSubmitted === false">
+          <md-button class="md-raised md-accent"
+                     ui-sref="submitTimes({id: eventLanding.meetup._id})">
+            Submit Availability
+          </md-button>
+          <md-button class="md-raised md-accent">Any time works</md-button>
+        </div>
+        <!--<h3>We're just waiting for everyone else. Thanks for being grand.</h3>-->
+      <!--</div>-->
+    <!--</md-card-content>-->
+  </div>
+</md-toolbar>
+
+<!--<md-content layout="column" class="md-whiteframe-4dp">-->
+  <!---->
+<!--</md-content>-->
+
+<md-content md-scroll-y layout="column" flex>
+  <div class="max-width container md-whiteframe-2dp" flex="noshrink" md-theme="pink">
+    <md-tabs md-dynamic-height md-border-bottom flex="noshrink">
+      <md-tab label="information">
+        <div class="white" layout="row">
+          <div layout="column" layout-align="start center" style="border-right: 1px solid rgba(0, 0, 0, .2);" flex>
+            <h4 style="color: rgba(0, 0, 0, .37); font-weight: 500;">Location</h4>
+            <p style="font-weight: 300; font-size: 1.2em; text-align: center;">
+              {{ eventLanding.location }}
+            </p>
+          </div>
+
+          <div layout="column" layout-align="start center" flex style="">
+            <h4 style="color: rgba(0, 0, 0, .37); font-weight: 500;">Date &amp; Time</h4>
+            <p style="font-weight: 300; font-size: 1.2em; text-align: center;">
+              {{ eventLanding.dateTime }}
+            </p>
+            <!-- <date-picker></date-picker> -->
+          </div>
+        </div>
+        <hr style="border-color: rgba(0, 0, 0, .2); margin-bottom: 0;">
+        <img style="width: 100%; height: auto;"src="/img/map.png">
+      </md-tab>
+
+      <md-tab label="messaging">
+        <h1>content</h1>
+        <h1>content</h1><h1>content</h1><h1>content</h1>
+        <h1>content</h1>
+        <h1>content</h1>
+        <h1>content</h1>
+
+
+      </md-tab>
+
+      <md-tab label="group members">
+      </md-tab>
+    </md-tabs>
+  </div>
+  <!-- <div class="container" layout="column" layout-padding flex class="md-whiteframe-4dp">
+    sdf
+  </div>
+  <card>
+    sdfs
+  </card> -->
+</md-content>
+
+<!-- <md-content layout="column">
+  <time-picker class="timepicker" layout="column" flex meetup="submitTimes.meetup"></time-picker>
+  <md-button class="md-primary md-raised">Submit Times</md-button>
+</md-content> -->

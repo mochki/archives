@@ -1,0 +1,45 @@
+Database:
+  meetup:
+    dateHash = [
+      {
+        unixTime: 3463563465,
+        availableHours: [12, 1, 2, 3, 4],
+        submittedTimes: [
+          {
+            _userId: dfsglsdjkflgk,
+            hours: {
+              4: 1,
+              5: 2,
+              6: 1,
+            }
+          },
+          {
+            _userId: gdf;lgkjdfgkl;j,
+            hours: {
+              4: 1, // the values are the weights
+              5: 2,
+              6: 1,
+            }
+          }
+        ]
+      },
+
+      {
+        unixTime: 123598345,
+        ...
+      },
+
+      {
+        unixTime: 4359384609,
+        ...
+      }
+    ]
+
+dateHash: {
+  23958340958: [12, 13, 14, 15],
+  23958340958: [12, 13, 14, 15],
+  23958340958: [12, 13, 14, 15]
+}
+
+for every person that submits:
+  object with dates and times for that day and weights for the times.

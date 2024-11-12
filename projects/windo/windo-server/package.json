@@ -1,0 +1,39 @@
+{
+  "name": "windoServer",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./server.js"
+  },
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "~1.8.1",
+    "connect-redis": "^3.0.2",
+    "cookie-parser": "~1.3.3",
+    "debug": "~2.0.0",
+    "express": "~4.9.0",
+    "express-session": "^1.13.0",
+    "jsonwebtoken": "^5.0.0",
+    "mongoose": "^4.4.3",
+    "morgan": "~1.3.0",
+    "nodemailer": "^2.2.0",
+    "passport": "^0.2.2",
+    "passport-facebook": "^2.1.0",
+    "passport-local": "^1.0.0",
+    "serve-favicon": "~2.1.3"
+  },
+  "main": "app.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jdeanwaite/windo-server.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jdeanwaite/windo-server/issues"
+  },
+  "homepage": "https://github.com/jdeanwaite/windo-server#readme",
+  "description": ""
+}

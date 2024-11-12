@@ -1,0 +1,31 @@
+{
+  "name": "windoServer",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Justin <jdeanwaite@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/jdeanwaite/windo-server",
+  "moduleType": [],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "*.secret",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "1.5.0",
+    "angular-ui-router": "^0.2.18",
+    "jquery": "^2.2.0",
+    "angular-material": "^1.0.5",
+    "angular-messages": "^1.5.0"
+  },
+  "resolutions": {
+    "angular-material": "^1.0.5",
+    "angular": "1.5.0"
+  }
+}

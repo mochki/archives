@@ -1,0 +1,157 @@
+<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+
+<style>
+  md-content{
+    background-color: #f6f6f6;
+  }
+  #event-header {
+    background-color: #4DB6AC;
+    color: white;
+    padding-top: 20px;
+    height: 80px;
+    min-height: 80px;
+  }
+
+  div.create-container {
+    width: 100%;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .max-width {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .inner-width {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .container {
+    background-color: #FFFFFF;
+    margin-bottom: 15px;
+    margin-top: 10px;
+  }
+
+  #event-header form {
+    width: 100%;
+  }
+
+  #event-header input{
+    background: none;
+    outline: none;
+    text-align: center;
+    font-size: 1.2em;
+    color: white;
+    height: auto;
+    border: none rgba(255, 255, 255, .57);
+    margin-bottom: 25px;
+    width: 100%;
+  }
+
+  #event-header input::-webkit-input-placeholder {
+    color: #DDD;
+  }
+  #event-header input:-moz-placeholder {
+    color: #DDD;
+  }
+  #event-header input::-moz-placeholder {
+    color: #DDD;
+  }
+  #event-header input:-ms-input-placeholder {
+    color: #DDD;
+  }
+</style>
+
+<!-- TOOLBAR -->
+<md-toolbar md-theme="teal"
+            class="main-toolbar md-whiteframe-4dp"
+            style="min-height: 136px; z-index: 4;">
+  <div class="md-toolbar-tools" layout-align="start center">
+    <md-button ui-sref="dashboard" class="md-icon-button" aria-label="Menu">
+      <md-icon class="material-icons">close</md-icon>
+    </md-button>
+    <span flex></span>
+    <h2>New Meetup</h2>
+    <span flex></span>
+    <md-button class="md-icon-button" aria-label="Account">
+      <md-icon class="material-icons">info_outline</md-icon>
+    </md-button>
+  </div>
+
+  <div id="event-header" layout="column">
+    <div class="max-width center"
+         layout="column"
+         layout-align="end center"
+         flex
+         style="height: 100%;">
+      <form name="create.nameForm"
+            class="name-form"
+            layout="column"
+            layout-align="end center">
+        <input name="name"
+               ng-model="create.eventName"
+               required
+               placeholder="Click to Enter Event Name">
+      </form>
+    </div>
+  </div>
+</md-toolbar>
+
+<!-- CONTENT -->
+<md-content md-scroll-y layout="column" flex layout-padding>
+  <div class="max-width container md-whiteframe-2dp" flex="noshrink">
+    <div class="create-container inner-width">
+      <form name="create.createForm"
+            md-theme="teal"
+            class="create-form"
+            layout-align="start center"
+            ng-submit="create.submitForm();">
+        <md-chips ng-model="create.invitees"
+                  readonly="false"
+                  placeholder="Search for friends"
+                  secondary-placeholder="Search for friends">
+          <md-chip-template>
+            <strong>{{$chip}}</strong>
+          </md-chip-template>
+        </md-chips>
+        <br>
+        <md-input-container class="md-block">
+          <label>Location</label>
+          <input name="eventLocation"
+                 ng-model="create.location"
+                 md-maxlength="24"
+                 minlength="4"
+                 title="Event Location">
+          <!-- <div ng-messages="create.createForm.location.$error" ng-show="create.createForm.location.$dirty">
+            <div ng-message="required">This is required!</div>
+            <div ng-message="md-maxlength">That's too long!</div>
+            <div ng-message="minlength">That's too short!</div>
+          </div> -->
+        </md-input-container>
+        <!-- <md-input-container class="md-block">
+          <label>Event Name</label>
+          <input name="test" class="" ng-model="create.eventName" required>
+        </md-input-container> -->
+
+        <input type="submit" style="position: absolute; left: -9999px; width: 1px; height: 1px;">
+      </form>
+
+      <label style="left: 3px; position: relative; color: #bdbdbd;">Set Dates Below</label>
+      <md-button ng-click="create.showTimeDialog(ev)">Modify Times</md-button>
+      <date-picker selected-days="create.selectedDays"></date-picker>
+      <md-button md-theme="teal"
+                 ng-disabled="create.nameForm.$invalid || create.createForm.$invalid"
+                 style="height: 60px; width: 100%; margin: 0; margin-top: 25px;"
+                 class="md-raised md-primary"
+                 ng-click="create.submitForm();">
+        Create
+      </md-button>
+
+    </div>
+  </div>
+</md-content>

@@ -1,0 +1,171 @@
+<meta name="viewport" content="initial-scale=1, maximum-scale=0">
+
+<style>
+
+  md-content {
+    background-color: rgba(246, 246, 246, 1);
+  }
+
+  #dash-header {
+    background-color: #FFB74D;
+    height: 100px;
+    min-height: 100px;
+    color: white;
+  }
+
+  md-toolbar.md-default-theme:not(.md-menu-toolbar) md-icon, md-toolbar:not(.md-menu-toolbar) md-icon {
+    color: white;
+  }
+
+  .md-toolbar-tools {
+    color: white;
+  }
+
+  .list-container {
+    width: 100%;
+    max-width: 1200px;
+    padding: 0;
+  }
+
+  .list {
+    background-color: #FFFFFF;
+    width: 100%;
+    padding: 0;
+  }
+  .card-title h3 {
+    font-weight: 500;
+  }
+
+  md-list md-list-item md-icon.md-avatar-icon {
+    background-color: #37bdff;
+  }
+
+  md-list md-list-item md-icon.md-avatar-icon.pending {
+    background-color: #0288D1;
+  }
+
+  div.md-toolbar-tools-bottom h1{
+    font-size: 36px;
+    text-align: center;
+  }
+
+  .header-tools {
+  }
+
+  .user {
+    margin-left: 20px;
+  }
+
+  .user h2 {
+    font-weight: 300;
+    margin: 0;
+  }
+
+  .user h3 {
+    font-weight: 300;
+    margin: 0;
+    font-size: .8em;
+  }
+
+  .header-tools img {
+    width: 60px;
+    height: auto;
+  }
+
+  .tools {
+    color: white;
+    height: 100%;
+  }
+</style>
+
+<md-toolbar class="main-toolbar md-hue-2 md-whiteframe-4dp">
+  <div class="md-toolbar-tools" layout-align="start center">
+    <md-button class="md-icon-button" aria-label="Menu">
+      <md-icon class="material-icons" aria-label="Menu" style="color: #fff;"> menu </md-icon>
+    </md-button>
+    <span flex></span>
+    <h2>Windo</h2>
+    <span flex></span>
+    <md-button ui-sref="create" class="md-icon-button" aria-label="Account">
+      <md-icon class="material-icons" style="color: #fff;">create</md-icon>
+    </md-button>
+  </div>
+
+  <div id="dash-header" layout="column">
+    <div class="header-tools" layout="row" layout-align="start center" flex style="height: 100%;">
+      <span flex="5"></span>
+      <img src="/img/avatar.png">
+      <div class="user" layout="column" flex="45">
+        <h2>Donald Person</h2>
+        <h3 hide-xs>Here are some smaller words to make me happy.</h3>
+      </div>
+
+      <div class="tools" layout="row" layout-align="end end" flex="50">
+        <md-button class="md-icon-button">
+          <md-icon class="material-icons" style="color: #fff;">
+            more_horiz
+          </md-icon>
+        </md-button>
+        <md-button class="md-icon-button">
+          <md-icon class="material-icons" style="color: #fff;">
+            notifications
+          </md-icon>
+        </md-button>
+        <md-button class="md-icon-button">
+          <md-icon class="material-icons" style="color: #fff;">
+            message
+          </md-icon>
+        </md-button>
+      </div>
+    </div>
+  </div>
+</md-toolbar>
+
+<!-- Only show if there is nothing to display on the dashboard -->
+<md-content ng-show="!dashboard.meetups || dashboard.meetups.length == 0", class="dark", layout="column", layout-align="center center", flex>
+  <h1 class="md-display-1 md-accent">Whats your Windo?</h1>
+</md-content>
+
+<md-content layout-padding layout="column" layout-align="start center" flex>
+  <div class="list-container" flex="noshrink">
+    <div class="md-whiteframe-2dp list">
+      <md-list style="text-align: left; width: 100%">
+        <md-list-item class="md-2-line" style="text-align: left;">
+          <md-icon class="material-icons md-avatar-icon pending">hourglass_empty</md-icon>
+          <div class="md-list-item-text card-title">
+            <h3><b>Pending</b></h3>
+            <h4>Just waiting on these</h4>
+          </div>
+          <md-divider></md-divider>
+        </md-list-item>
+        <md-list-item class="md-3-line" style="text-align: left;" ng-click="dashboard.goToMeetup(meetup._id)" ng-repeat="meetup in dashboard.meetups">
+          <div class="md-list-item-text">
+            <h3>{{meetup.name | uppercase}}</h3>
+            <h4>{{meetup.invitees.join(', ')}}</h4>
+          </div>
+          <md-button class="md-secondary" ng-click="dashboard.deleteMeetup(meetup._id)">Delete</md-button>
+          <md-divider></md-divider>
+        </md-list-item>
+      </md-list>
+
+      <md-list style="text-align: left; width: 100%">
+        <md-list-item class="md-2-line" style="text-align: left;">
+          <md-icon class="material-icons md-avatar-icon">date_range</md-icon>
+          <div class="md-list-item-text card-title">
+            <h3><b>Upcoming</b></h3>
+            <h4>See what's on your calendar</h4>
+          </div>
+          <md-divider></md-divider>
+        </md-list-item>
+        <md-list-item class="md-3-line" style="text-align: left;" ng-click="dashboard.goToMeetup(meetup._id)" ng-repeat="meetup in dashboard.meetups">
+          <div class="md-list-item-text">
+            <h3>{{meetup.name | uppercase}}</h3>
+            <h4>{{meetup.invitees.join(', ')}}</h4>
+          </div>
+          <md-button class="md-secondary" ng-click="dashboard.deleteMeetup(meetup._id)">Delete</md-button>
+          <md-divider ng-if="!$last"></md-divider>
+        </md-list-item>
+      </md-list>
+    </div>
+  </div>
+</md-content>
