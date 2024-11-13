@@ -1,0 +1,40 @@
+@import "../../_shared.scss";
+
+.header-component {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 25px;
+  @include for-tablet-portrait-up {
+    margin-top: 75px;
+  }
+  @include for-desktop-up {
+    margin-top: 80px;
+  }
+  @include uniform-transition(margin-top);
+
+  .logo-wrapper {
+    width: 56px;
+    @include for-tablet-portrait-up {
+      width: 62px;
+    }
+    @include uniform-transition(width);
+    img {
+      width: 100%;
+    }
+  }
+
+  .links {
+    margin-top: -5px; // Visually for the top.
+    a {
+      @include links(font-size);
+      font-family: "Merk-Medium", sans-serif;
+      font-size: 15px;
+      @include for-tablet-landscape-up {
+        font-size: 18px;
+      }
+      &:first-of-type {
+        margin-right: 36px;
+      }
+    }
+  }
+}

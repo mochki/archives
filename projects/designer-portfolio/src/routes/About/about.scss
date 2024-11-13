@@ -1,0 +1,213 @@
+@import "../../_shared.scss";
+
+@mixin seven-hundred-down {
+  @media (max-width: 699px) {
+    @content;
+  }
+}
+
+.about-component {
+  font-size: 18px;
+  @include for-tablet-portrait-up {
+    font-size: 20px;
+  }
+  @include for-tablet-landscape-up {
+    font-size: 24px;
+  }
+  @include uniform-transition(font-size);
+  @include content-load;
+
+  .bar {
+    background-color: $bar-grey;
+    width: 100%;
+    height: 1px;
+  }
+
+  .intro {
+    margin-top: 35px;
+    margin-bottom: 30px;
+    @include for-tablet-portrait-up {
+      margin-top: 84px;
+      margin-bottom: 66px;
+    }
+    @include for-tablet-landscape-up {
+      margin-bottom: 49px;
+    }
+    @include for-desktop-up {
+      margin-top: 120px;
+      margin-bottom: 74px;
+    }
+    @include uniform-transition(margin-top, margin-bottom);
+  }
+
+  .links-wrapper {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    min-height: 150px;
+    @include for-tablet-portrait-up {
+      justify-content: flex-end;
+    }
+
+    .link {
+      display: flex;
+      align-items: center;
+      .icon-wrapper {
+        width: 38px;
+        height: 38px;
+        margin-right: 10px;
+        img {
+          width: 100%;
+        }
+      }
+      .link-text {
+        font-family: "Merk-Medium", sans-serif;
+        font-size: 20px;
+        text-decoration: none;
+        color: $black;
+      }
+    }
+    .ux {
+      @include for-tablet-portrait-up {
+        margin-left: 30px;
+      }
+    }
+    a {
+      text-decoration: none;
+      transition: opacity 0.2s ease;
+      &:hover {
+        opacity: 0.2;
+      }
+    }
+  }
+
+  .section {
+    margin-top: 32px;
+    @include for-desktop-up {
+      margin-top: 50px;
+    }
+    @include uniform-transition(margin-top);
+    .title {
+      font-family: "Merk-Medium", sans-serif;
+      font-size: 20px;
+      margin-bottom: 28px;
+      @include for-tablet-portrait-up {
+        font-size: 26px;
+        margin-bottom: 40px;
+      }
+      @include for-tablet-landscape-up {
+        font-size: 28px;
+        margin-bottom: 60px;
+      }
+      @include uniform-transition(font-size, margin-bottom);
+    }
+    .row {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .contact {
+      margin-bottom: 32px;
+      @include for-desktop-up {
+        margin-bottom: 50px;
+      }
+      @include uniform-transition(margin-bottom);
+      .email {
+        @include for-phone-only {
+          width: 100%;
+          margin-bottom: 10px;
+        }
+      }
+      .phone {
+        @include for-phone-only {
+          width: 100%;
+        }
+      }
+      a {
+        @include links;
+      }
+    }
+
+    .experience {
+      margin-bottom: 36px;
+      @include for-tablet-portrait-up {
+        margin-bottom: 48px;
+      }
+      @include for-tablet-landscape-up {
+        margin-bottom: 60px;
+      }
+      @include uniform-transition(margin-bottom);
+      .cp {
+        width: 47%;
+        .company {
+          font-family: "Merk-Medium", sans-serif;
+        }
+        @include seven-hundred-down {
+          width: 100%;
+          margin-bottom: 15px;
+        }
+        @include uniform-transition(margin-bottom);
+      }
+      .location {
+        width: 28%;
+        @include seven-hundred-down {
+          width: 100%;
+        }
+      }
+      .time {
+        flex: 1 0;
+        text-align: right;
+        @include seven-hundred-down {
+          flex: none;
+          width: 100%;
+          text-align: left;
+        }
+      }
+    }
+    .education {
+      margin-bottom: 36px;
+      @include for-tablet-portrait-up {
+        margin-bottom: 48px;
+      }
+      @include for-tablet-landscape-up {
+        margin-bottom: 60px;
+      }
+      @include uniform-transition(margin-bottom);
+      .sp {
+        width: 47%;
+        .school {
+          font-family: "Merk-Medium", sans-serif;
+        }
+        @include seven-hundred-down {
+          width: 100%;
+          margin-bottom: 15px;
+        }
+        @include uniform-transition(margin-bottom);
+        .location {
+          flex: 1 0;
+          text-align: right;
+          @include seven-hundred-down {
+            flex: none;
+            width: 100%;
+            text-align: left;
+          }
+        }
+      }
+    }
+    .bottom {
+      margin-bottom: 41px;
+      @include for-tablet-portrait-up {
+        margin-bottom: 70px;
+      }
+      @include for-tablet-landscape-up {
+        margin-bottom: 110px;
+      }
+      @include for-desktop-up {
+        margin-bottom: 150px;
+      }
+      @include uniform-transition(margin-bottom);
+    }
+  }
+}

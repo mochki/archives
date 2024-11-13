@@ -1,0 +1,53 @@
+@import "../../_shared.scss";
+
+.footer-component {
+  font-size: 16px;
+  padding: 30px 0 150px;
+  border-top: 2px solid $black;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  flex-direction: column-reverse;
+  @include for-tablet-landscape-up {
+    padding: 80px 0 200px;
+    font-size: 20px;
+    flex-direction: row;
+  }
+  @include for-desktop-up {
+    padding: 80px 0 200px;
+  }
+  @include uniform-transition(padding, font-size);
+
+  .social {
+    @media (min-width: 400px) {
+      display: flex;
+    }
+    display: none;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    a {
+      @include links;
+      @include for-tablet-landscape-up {
+        margin-left: 40px;
+      }
+    }
+  }
+
+  .social-mobile {
+    @media (min-width: 400px) {
+      display: none;
+    }
+    display: flex;
+    flex-wrap: wrap;
+    .row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 30px;
+      width: 100%;
+      a {
+        @include links;
+      }
+    }
+  }
+}

@@ -1,0 +1,119 @@
+@import '../../_shared.scss';
+
+@keyframes auth-load {
+  0% { opacity: 1; transform: translateY(0px); }
+  100% { opacity: 0; transform: translateY(15px); }
+}
+
+@keyframes ux-show {
+  0% { opacity: 0; visibility: visible; height: 1200px; }
+  100% { opacity: 1; visibility: visible; height: auto; }
+}
+
+.ux-wrapper {
+  .ux-component {
+    width: 100%;
+    min-height: 500px;
+    margin-bottom: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    @include content-load;
+  
+    input {
+      outline: none;
+      font-size: 20px;
+      font-family: 'Merk-Light', sans-serif;
+      border: none;
+      border-bottom: 2px solid $grey;
+      border-radius: 0px;
+      letter-spacing: 8px;
+      text-align: center;
+      @include uniform-transition(border);
+      &:focus {
+        border-bottom: 2px solid $black;
+      }
+      &::placeholder { letter-spacing: 0px; }
+    }
+  
+    .authed {
+      animation: auth-load 1.2s;
+      animation-fill-mode: forwards;
+    }
+  }
+  
+  .show {
+    animation: ux-show 1.2s;
+    animation-fill-mode: forwards;
+  }
+
+  .ux-prv-cont {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    min-height: 1200px;
+    height: 1200px;
+    overflow: hidden;
+    visibility: hidden;
+    background-color: #525659;
+    padding: 50px 5px 0;
+    @include for-tablet-landscape-up { padding: 50px 50px 0; }
+    @include uniform-transition(padding);
+
+    .pdfHeader {
+      position: fixed;
+      display: flex;
+      z-index: 2;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+      color: $white;
+      height: 50px;
+      top: 0;
+      left: 0;
+      right: 0;
+      background-color: #323639;
+      box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
+      .download-wrapper {
+        width: 25px;
+        height: 25px;
+        img { width: 100%; }
+      }
+    }
+
+    .show {
+      @include content-load;
+    }
+
+    .ux-prv-w {
+      transform: translateY(15px);
+      opacity: 0;
+      visibility: hidden;
+
+      .ux-prv {
+        width: 100%;
+        margin: 15px 0;
+        box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
+        img { width: 100%; display: block; }
+      }
+    }
+
+    .loading {
+      opacity: 1;
+      z-index: 1;
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      left: 0;
+      top: 350px;
+      &.loading-done {
+        animation: loading 600ms;
+        animation-fill-mode: forwards;
+      }
+    }
+  }
+}
