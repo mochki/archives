@@ -14,5 +14,3 @@ both nominal and numerical datasets.
 - 8: Ensemble
 
 Requires `numpy pyplot sklearn`
-
-like neural nets!) and used them. Most of it was done in Python, but there was some of it that I did in R. Here is a list of some algorithms:
