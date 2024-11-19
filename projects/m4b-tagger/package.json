@@ -1,0 +1,20 @@
+{
+  "name": "m4b-tagger",
+  "version": "1.0.0",
+  "description": "Audiobooks from raws to tagged m4b's",
+  "scripts": {
+    "scrape": "ts-node src/fetchAudibleMetadata.ts"
+  },
+  "author": "Mo",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^14.14.16",
+    "@types/node-fetch": "^2.5.7",
+    "dotenv": "^8.2.0",
+    "get-audio-duration": "^2.0.3",
+    "node-fetch": "^2.6.1",
+    "playwright": "^1.7.1",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.1.3"
+  }
+}

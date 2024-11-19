@@ -5,6 +5,7 @@ Past work
 ### Projects
 
 - [submarine](projects/submarine/README.md)
+- [m4b chapter tagger](projects/m4b-tagger/README.md)
 - [electromagnetic simulations](projects/electromagnetism/README.md)
 - [designer portfolio](projects/designer-portfolio/README.md)
 - [asteroids](projects/asteroids/README.md)

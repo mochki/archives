@@ -1,0 +1,10 @@
+Using Vosk audio -> text
+1. convert to wav:
+ffmpeg -i file.m4b -ar 16000 -ac 1 file.wav
+2. navigate to vosk-api/python/example/
+python3 ./test_simple.py file.wav
+3. this generates a dictated.json file to the desktop. That can be search/filtered and the timestamps can be used.
+
+For use with chapter metadata
+https://ffmpeg.org/ffmpeg-formats.html#Metadata-1
+
