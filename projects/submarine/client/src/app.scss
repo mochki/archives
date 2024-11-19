@@ -1,0 +1,95 @@
+@import "_shared.scss";
+
+body {
+  margin: 0;
+  background: $dark-blue;
+}
+
+.app-component {
+  @include gotham-book;
+  color: $white;
+  display: flex;
+  justify-content: center;
+
+  .video-canvas {
+    background-color: white;
+    min-height: 100vh;
+  }
+
+  .info-button {
+    position: fixed !important;
+    top: 25px;
+    right: 25px;
+    z-index: 1;
+    cursor: pointer;
+  }
+
+  .wasd {
+    position: fixed !important;
+    bottom: 25px;
+    left: 25px;
+    z-index: 1;
+  }
+
+  .arrows {
+    position: fixed !important;
+    bottom: 25px;
+    right: 25px;
+    z-index: 1;
+  }
+
+  .info-overlay {
+    visibility: hidden;
+    background-color: rgba(0, 0, 0, 0.37);
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+
+    .info-close-button {
+      position: absolute;
+      font-size: 20px;
+      top: 25px;
+      right: 25px;
+      cursor: pointer;
+    }
+
+    .info {
+      text-align: justify;
+      width: 95%;
+      max-width: 500px;
+      margin-top: 60px;
+      font-size: 18px;
+      .title {
+        @include gotham-medium;
+      }
+      .info-body {
+        margin-bottom: 25px;
+      }
+    }
+
+    .wasd-info {
+      position: absolute;
+      width: 272px;
+      height: 253px;
+      left: 27px;
+      bottom: 105px;
+    }
+
+    .arrows-info {
+      position: absolute;
+      width: 272px;
+      height: 253px;
+      right: 27px;
+      bottom: 105px;
+    }
+  }
+
+  .show {
+    visibility: visible;
+  }
+}

@@ -1,0 +1,27 @@
+;FFMETADATA1
+major_brand=M4A 
+minor_version=0
+compatible_brands=mp42isom
+composer=
+album_artist=Book Writer
+artist=Book Writer
+album=Series - Book Title
+genre=Science Fiction
+title=Book Title
+encoder=Lavf58.45.100
+[CHAPTER]
+TIMEBASE=1/1000
+START=0
+END=39000
+title=Opening Credits
+[CHAPTER]
+TIMEBASE=1/1000
+START=39000
+END=1655000
+title=1. A Chapter
+[CHAPTER]
+TIMEBASE=1/1000
+START=1655000
+END=1695000
+title=End Credits
+ 
