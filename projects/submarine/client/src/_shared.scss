@@ -1,0 +1,105 @@
+// Colors
+$black: #000000;
+$grey: #464751;
+$white: #ffffff;
+$dark-blue: #13054e;
+
+// Mixins
+// Fonts
+@mixin gotham-book {
+  font-family: "GothamRounded-Book";
+}
+
+@mixin gotham-medium {
+  font-family: "GothamRounded-Medium";
+}
+
+// Breakpoints
+@mixin for-phone-only {
+  @media (max-width: 599px) {
+    @content;
+  }
+}
+@mixin for-tablet-portrait-up {
+  @media (min-width: 600px) {
+    @content;
+  }
+}
+@mixin for-tablet-landscape-up {
+  @media (min-width: 900px) {
+    @content;
+  }
+}
+@mixin for-desktop-up {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}
+@mixin for-big-desktop-up {
+  @media (min-width: 1800px) {
+    @content;
+  }
+}
+
+// Transitions
+@mixin uniform-transition($property...) {
+  $val: ();
+  @each $p in $property {
+    $val: append($val, ($p 0.3s ease), comma);
+  }
+  transition: $val;
+}
+
+// Helpers
+@mixin links($property...) {
+  text-decoration: none;
+  color: $black;
+  outline: none;
+  $val: ();
+  @each $p in $property {
+    $val: append($val, ($p 0.3s ease), comma);
+  }
+  transition: color 0.2s ease, $val;
+  &:hover {
+    color: $grey;
+  }
+}
+
+// Animation
+// Classes
+.fade-in {
+  animation: fade-in 0.3s;
+  animation-fill-mode: forwards;
+}
+
+.fade-out {
+  animation: fade-out 0.3s;
+  animation-fill-mode: forwards;
+}
+
+// Keyframes
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    visibility: visible;
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+    visibility: visible;
+  }
+  99% {
+    opacity: 0;
+    visibility: visible;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}

@@ -4,6 +4,7 @@ Past work
 
 ### Projects
 
+- [submarine](projects/submarine/README.md)
 - [electromagnetic simulations](projects/electromagnetism/README.md)
 - [designer portfolio](projects/designer-portfolio/README.md)
 - [asteroids](projects/asteroids/README.md)
