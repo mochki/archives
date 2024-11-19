@@ -9,3 +9,4 @@ Past work
 - [asteroids](projects/asteroids/README.md)
 - [sudoku + solver](projects/sudoku/README.md)
 - [windo](projects/windo/README.md) - an iOS app for negotiating available times
+- [machine learning algorithms](projects/machine-learning/README.md)
